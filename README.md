@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/sryza/spark-timeseries.svg)](https://travis-ci.org/sryza/spark-timeseries)
 
 Time Series for Spark (The `spark-ts` Package)
@@ -106,3 +107,7 @@ To release Python packages (based on http://peterdowns.com/posts/first-time-with
 
     python setup.py register -r pypi
     python setup.py sdist upload -r pypi
+=======
+# SML
+SML example repo based on the Spark TimeSeries repo built by Sandy Ryza
+>>>>>>> 69936711d0d34fca355005137fc242649c4aa8bb
