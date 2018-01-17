@@ -3,10 +3,11 @@ package com.ons.sml.businessMethods.impl
 import org.apache.spark.sql.{Column, DataFrame}
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions.{col, when, row_number}
+import BaseImpl.BaseMethodsImpl
 
 object DuplicateImpl {
 
-  implicit class UtilMethodsImpl(df: DataFrame) {
+  implicit class DuplicateMethodsImpl(df: DataFrame) extends BaseMethodsImpl(df : DataFrame){
 
     /** This method will flag any duplicate records
       *
