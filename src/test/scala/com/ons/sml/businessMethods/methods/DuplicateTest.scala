@@ -32,10 +32,6 @@ class DuplicateTest extends TestSparkContext {
     }
   }
 
-//  test("testDm1$default$4") {
-//
-//  }
-//
   test("testDfIn") {
     // Input data
     val inData: String = "./src/test/resources/sml/inputs/DuplicateMarker.json"
@@ -98,8 +94,12 @@ class DuplicateTest extends TestSparkContext {
     println("Input dataframe")
     inDf.show()
 
+    //create a invalid object
+    val invalDf = intercept[Exception] {new Duplicate(null)}
+
     assertCompiles("new Duplicate(inDf)")
     assertDoesNotCompile("new Duplicate()")
+    assert(invalDf.getMessage === "DataFrame cannot be null")
   }
 
 }
