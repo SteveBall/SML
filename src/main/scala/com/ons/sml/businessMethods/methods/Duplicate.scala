@@ -12,6 +12,7 @@ class Duplicate (val dfIn: DataFrame) {
 
   val defaultCol = "DuplicateMarking"
 
+  // TODO Replace the below checks with Options
   private def mandatoryArgCheck(arg1 : List[String], arg2 : List[String], arg3 : String) : Unit = {
 
     if ((arg1 == null) || (arg2 == null) || (arg3 == null)) throw new Exception("Missing mandatory argument")
