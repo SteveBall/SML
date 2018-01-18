@@ -14,7 +14,7 @@ class DuplicateImplTest extends TestSparkContext {
     println("Input dataframe")
     inDf.show()
 
-    // Golden data
+    // Expected data
     val expData: String = "./src/test/resources/sml/outputs/DuplicateMarker.json"
     val expDf: DataFrame = _hc.read.json(expData).select("id", "num", "order", "marker")
     println("Expected dataframe")
