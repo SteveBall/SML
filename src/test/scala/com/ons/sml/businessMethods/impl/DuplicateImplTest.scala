@@ -7,28 +7,27 @@ import uk.gov.ons.SparkTesting.TestSparkContext
 
 class DuplicateImplTest extends TestSparkContext {
 
-  test("test duplicate_marker with test data") {
+  test("test duplicateMarking implicit") {
     // Input data
-    val inputData: String = "./src/test/resources/sml/inputs/DuplicateMarker.json"
-    val inputdf: DataFrame = _hc.read.json(inputData).select("id", "num", "order")
+    val inData: String = "./src/test/resources/sml/inputs/DuplicateMarker.json"
+    val inDf: DataFrame = _hc.read.json(inData).select("id", "num", "order")
     println("Input dataframe")
-    inputdf.show()
+    inDf.show()
 
     // Golden data
-    val goldenData: String = "./src/test/resources/sml/outputs/DuplicateMarker.json"
-    val goldendf: DataFrame = _hc.read.json(goldenData).select("id", "num", "order", "marker")
-    println("Golden dataframe")
-    goldendf.show()
+    val expData: String = "./src/test/resources/sml/outputs/DuplicateMarker.json"
+    val expDf: DataFrame = _hc.read.json(expData).select("id", "num", "order", "marker")
+    println("Expected dataframe")
+    expDf.show()
 
     // Create actual output
-    val outDf: DataFrame = inputdf.duplicateMarking(List("id", "num"), List("order"), "marker")
-    println("Output DataFrame")
+    val outDf: DataFrame = inDf.duplicateMarking(List("id", "num"), List("order"), "marker")
+    println("Output dataframe")
     outDf.show()
 
     // Assert
-    assertResult(goldendf.collect()) {
+    assertResult(expDf.collect()) {
       outDf.collect()
-
     }
   }
 }
