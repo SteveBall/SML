@@ -19,7 +19,7 @@ class DuplicateTest extends TestSparkContext {
     expDf.show()
 
     // Create object
-    val dup = new Duplicate(expDf)
+    val dup = new Duplicate(expDf.select("id"))
 
     // Create actual output
     val outDf: DataFrame = dup.dm1(inDf, List("id", "num"), List("order"), "marker")
