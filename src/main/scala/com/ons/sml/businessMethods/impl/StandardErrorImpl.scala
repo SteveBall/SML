@@ -14,15 +14,14 @@ object StandardErrorImpl {
       *
       * @author Stuart Russell
       * @version 1.0
-      * @param dataOrig - The input DataFrame
       * @param newColName - The name of the standard error column
       * @param xCol - The column to be used as X in the calculation
       * @param yCol - The column to be used as Y in the calculation
       * @param zCol - The column to be used as Z in the calculation
       * @return - DataFrame
       */
-    def findStandardError(dataOrig: DataFrame, newColName: String, xCol: String, yCol: String, zCol: String): DataFrame = {
-      val standard_df = dataOrig.withColumn(newColName, F.sqrt((F.col(xCol) / F.col(yCol)) * ((F.col(xCol) - F.col(yCol)) /
+    def findStandardError(newColName: String, xCol: String, yCol: String, zCol: String): DataFrame = {
+      val standard_df = df.withColumn(newColName, F.sqrt((F.col(xCol) / F.col(yCol)) * ((F.col(xCol) - F.col(yCol)) /
         (F.col(yCol) - 1))) * F.col(zCol))
       standard_df
     }

@@ -16,12 +16,12 @@ class StandardError (val dfIn: DataFrame){
     if ((arg1 == null) || (arg2 == null) ||(arg3 == null) ||(arg4 == null)) throw new Exception("Missing mandatory argument")
   }
 
-  def stdErr1(df: DataFrame, newColName: String = defaultCol, xCol: String, yCol: String, zCol: String): DataFrame={
+  def stdErr1(df: DataFrame, xCol: String, yCol: String, zCol: String,newColName: String = defaultCol): DataFrame={
     mandatoryArgCheck(newColName, xCol, yCol, zCol)
 
     val dF = if (df == null) dfIn else df
 
-    dF.checkColNames(Seq(xCol, yCol, zCol)).findStandardError(df, newColName, xCol, yCol, zCol)
+    dF.checkColNames(Seq(xCol, yCol, zCol)).findStandardError(newColName, xCol, yCol, zCol)
   }
 }
 
