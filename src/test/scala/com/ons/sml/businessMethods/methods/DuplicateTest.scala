@@ -91,9 +91,15 @@ class DuplicateTest extends TestSparkContext {
     }
   }
 
-//  test("testDuplicate") {
-//
-//
-//  }
+  test("testDuplicate") {
+    // Input data
+    val inData: String = "./src/test/resources/sml/inputs/DuplicateMarker.json"
+    val inDf: DataFrame = _hc.read.json(inData).select("id", "num", "order")
+    println("Input dataframe")
+    inDf.show()
+
+    assertCompiles("new Duplicate(inDf)")
+    assertDoesNotCompile("new Duplicate()")
+  }
 
 }
