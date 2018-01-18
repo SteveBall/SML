@@ -12,7 +12,7 @@ class DuplicateTest extends TestSparkContext {
     println("Input dataframe")
     inDf.show()
 
-    // Golden data
+    // Expected data
     val expData: String = "./src/test/resources/sml/outputs/DuplicateMarker.json"
     val expDf: DataFrame = _hc.read.json(expData).select("id", "num", "order", "marker")
     println("Expected dataframe")
@@ -43,7 +43,7 @@ class DuplicateTest extends TestSparkContext {
     println("Input dataframe")
     inDf.show()
 
-    // Golden data
+    // Expected data
     val expData: String = "./src/test/resources/sml/outputs/DuplicateMarker.json"
     val expDf: DataFrame = _hc.read.json(expData).select("id", "num", "order", "marker")
     println("Expected dataframe")
@@ -62,11 +62,35 @@ class DuplicateTest extends TestSparkContext {
       outDf.collect()
     }
   }
-//
-//  test("testDefaultCol") {
-//
-//  }
-//
+
+  test("testDefaultCol") {
+    // Input data
+    val inData: String = "./src/test/resources/sml/inputs/DuplicateMarker.json"
+    val inDf: DataFrame = _hc.read.json(inData).select("id", "num", "order")
+    println("Input dataframe")
+    inDf.show()
+
+    // Expected data
+    val expData: String = "./src/test/resources/sml/outputs/DuplicateMarker.json"
+    val expDf: DataFrame = _hc.read.json(expData).select("id", "num", "order", "marker")
+      .withColumnRenamed("marker", "DuplicateMarking")
+    println("Expected dataframe")
+    expDf.show()
+
+    // Create object
+    val dup = new Duplicate(inDf)
+
+    // Create actual output
+    val outDf: DataFrame = dup.dm1(null, List("id", "num"), List("order"))
+    println("Output dataframe")
+    outDf.show()
+
+    // Assert
+    assertResult(expDf.collect()) {
+      outDf.collect()
+    }
+  }
+
 //  test("testDuplicate") {
 //
 //
