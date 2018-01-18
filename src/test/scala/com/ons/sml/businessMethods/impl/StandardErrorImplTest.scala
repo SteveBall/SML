@@ -2,7 +2,6 @@ package com.ons.sml.businessMethods.impl
 
 
 import org.apache.spark.sql.DataFrame
-import org.scalatest.FunSuite
 import uk.gov.ons.SparkTesting.TestSparkContext
 
 class StandardErrorImplTest extends TestSparkContext {
@@ -13,12 +12,12 @@ class StandardErrorImplTest extends TestSparkContext {
     import com.ons.sml.businessMethods.impl.StandardErrorImpl._
     val inData: String = "./src/test/resources/sml/inputs/StandardErrorDataIn.json"
     val inputData: DataFrame = _hc.read.json(inData).select("ref", "xColumn", "yColumn","zColumn")
-    println("Input dataframe")
+    //println("Input dataframe")
     //inputData.show()
     // Create expected DataFrame
     val expectedData: String = "./src/test/resources/sml/outputs/StandardErrorExpected.json"
     val expOutData: DataFrame = _hc.read.json(expectedData).select("ref", "xColumn", "yColumn","zColumn","stdError")
-    println("Expected dataframe")
+    //println("Expected dataframe")
     //expOutData.show()
     // Calling the method
     val realOutData: DataFrame = inputData.findStandardError("stdError", "xColumn", "yColumn", "zColumn")

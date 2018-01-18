@@ -1,9 +1,7 @@
 package com.ons.sml.businessMethods.methods
 
 import org.apache.spark.sql.DataFrame
-import org.scalatest.FunSuite
 import uk.gov.ons.SparkTesting.TestSparkContext
-import org.apache.spark.sql.types.{StructType,StructField,StringType,IntegerType}
 
 class StandardErrorTest extends TestSparkContext {
   /**
@@ -13,14 +11,14 @@ class StandardErrorTest extends TestSparkContext {
   def dataIn(): DataFrame ={
     val inData: String = "./src/test/resources/sml/inputs/StandardErrorDataIn.json"
     val inputData: DataFrame = _hc.read.json(inData).select("ref", "xColumn", "yColumn","zColumn")
-    println("Input dataframe")
+    //println("Input dataframe")
     //inputData.show()
     inputData
   }
   def dataExpected(): DataFrame ={
     val expectedData: String = "./src/test/resources/sml/outputs/StandardErrorExpected.json"
     val expOutData: DataFrame = _hc.read.json(expectedData).select("ref", "xColumn", "yColumn","zColumn","stdError")
-    println("Expected dataframe")
+    //println("Expected dataframe")
     //expOutData.show()
     expOutData
   }
