@@ -11,17 +11,17 @@ class StandardError (val dfIn: DataFrame){
 
   val defaultCol ="StandardError"
 
-  private def mandatoryArgCheck(arg1 : String, arg2:String, arg3:String, arg4:String) : Unit = {
+  private def mandatoryArgCheck(arg1:String, arg2:String, arg3:String) : Unit = {
 
-    if ((arg1 == null) || (arg2 == null) ||(arg3 == null) ||(arg4 == null)) throw new Exception("Missing mandatory argument")
+    if ((arg1 == null) ||(arg2 == null) ||(arg3 == null)) throw new Exception("Missing mandatory argument")
   }
 
   def stdErr1(df: DataFrame, xCol: String, yCol: String, zCol: String,newColName: String = defaultCol): DataFrame={
-    mandatoryArgCheck(newColName, xCol, yCol, zCol)
+    mandatoryArgCheck(xCol, yCol, zCol)
 
     val dF = if (df == null) dfIn else df
-
-    dF.checkColNames(Seq(xCol, yCol, zCol)).findStandardError(newColName, xCol, yCol, zCol)
+    val newColName1 =  if (newColName==null) defaultCol else newColName
+    dF.checkColNames(Seq(xCol, yCol, zCol)).findStandardError(newColName1, xCol, yCol, zCol)
   }
 }
 
@@ -30,3 +30,5 @@ object StandardError {
   def standardError(df: DataFrame) : StandardError = {new StandardError(df)}
 
 }
+
+
