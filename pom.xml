@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Copyright (c) 2015, Cloudera, Inc. All Rights Reserved.
-
   Cloudera, Inc. licenses this file to you under the Apache License,
   Version 2.0 (the "License"). You may not use this file except in
   compliance with the License. You may obtain a copy of the License at
-
       http://www.apache.org/licenses/LICENSE-2.0
-
   This software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
   CONDITIONS OF ANY KIND, either express or implied. See the License for
   the specific language governing permissions and limitations under the
@@ -30,7 +27,7 @@
     </license>
   </licenses>
 
- <developers>
+  <developers>
     <developer>
       <name>Sandy Ryza</name>
       <email>sandyryza@gmail.com</email>
@@ -73,7 +70,7 @@
       <url>http://cloudera.github.io/spark-timeseries/</url>
     </site>
   </distributionManagement>
-  
+
   <build>
     <plugins>
       <plugin>
@@ -82,9 +79,9 @@
         <version>1.6.7</version>
         <extensions>true</extensions>
         <configuration>
-           <serverId>ossrh</serverId>
-           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-           <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
       <plugin>
@@ -145,7 +142,7 @@
         </executions>
       </plugin>
 
-       <!--enable surefire-->
+      <!--enable surefire-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -402,6 +399,12 @@
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
+      <artifactId>spark-hive_${scala.minor.version}</artifactId>
+      <version>${spark.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
       <artifactId>spark-sql_${scala.minor.version}</artifactId>
       <version>${spark.version}</version>
       <scope>provided</scope>
@@ -427,6 +430,12 @@
       <groupId>org.scalatest</groupId>
       <artifactId>scalatest_${scala.minor.version}</artifactId>
       <version>2.2.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>uk.gov.ons</groupId>
+      <artifactId>sparktesting_${scala.minor.version}</artifactId>
+      <version>0.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>

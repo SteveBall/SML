@@ -18,11 +18,11 @@ object LagImpl {
       // Create window
       val w = Window.partitionBy(pCols: _*).orderBy(oCols: _*)
       // Lag target
-//      var df2: DataFrame = df
+      var df2: DataFrame = df
       for (i <- 1 to lagNum) {
-        df.withColumn(s"lagged$i", lag(targetCol, i, null).over(w))
+        df2 = df2.withColumn(s"lagged$i", lag(targetCol, i, null).over(w))
       }
-      df
+      df2
     }
   }
 }
