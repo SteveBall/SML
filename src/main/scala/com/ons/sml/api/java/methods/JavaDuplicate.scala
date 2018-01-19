@@ -5,8 +5,8 @@ import org.apache.spark.sql.{DataFrame, Dataset, Row}
 
 class JavaDuplicate[K](dm: Duplicate) {
   // TODO find out how to implement default values
-  def dm1(df: DataFrame, partCol: List[String], ordCol: List[String], new_col: String): DataFrame = {
-    dm.dm1(df, partCol, ordCol, new_col)
+  def dm1(df: Dataset[Row], partCol: Array[String], ordCol: Array[String], new_col: String): DataFrame = {
+    dm.dm1(df, partCol.toList, ordCol.toList, new_col)
   }
 }
 object JavaDuplicate{
