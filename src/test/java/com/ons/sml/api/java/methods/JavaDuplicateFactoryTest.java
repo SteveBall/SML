@@ -5,6 +5,8 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class JavaDuplicateFactoryTest {
@@ -37,8 +39,12 @@ public class JavaDuplicateFactoryTest {
         JavaDuplicate Dup = JavaDuplicate.duplicate(inDf);
 
         // Output data
-        String[] partCol = new String[]{"id", "num"};
-        String[] ordCol = new String[]{"order"};
+        ArrayList<String> partCol = new ArrayList<String>();
+        ArrayList<String> ordCol = new ArrayList<String>();
+
+        partCol.add("id");
+        partCol.add("num");
+        ordCol.add("order");
 
         Dataset<Row> outDf = Dup.dm1(inDf, partCol, ordCol, "marker");
         System.out.println("Output DataFrame");
