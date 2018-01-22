@@ -18,7 +18,7 @@ class Melt(val dfIn: DataFrame) {
     val checkCols: Seq[String] = id_vars++value_vars
 
     inputData.checkColNames(checkCols)
-             .melt1(input, id_vars, value_vars, var_name, value_name)
+             .melt1(id_vars, value_vars, var_name, value_name)
   }
 
 }

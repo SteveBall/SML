@@ -35,7 +35,6 @@ object MeltImpl {
       *
       * @author Kayleigh Bellis
       * @version 1.0
-      * @param input DataFrame        - The input DataFrame
       * @param id_vars Seq[String]    - Column(s) which are used as unique identifiers
       * @param value_vars Seq[String] - Column(s) which are being unpivoted
       * @param var_name String        - The name of a new column, which holds all the value_vars names, defaulted to
@@ -44,8 +43,8 @@ object MeltImpl {
       *                                 defaulted to value.
       * @return DataFrame
       */
-    def melt1(input: DataFrame, id_vars: Seq[String], value_vars: Seq[String], var_name: String ="variable",
-             value_name: String ="value") : DataFrame = {
+    def melt1(id_vars: Seq[String], value_vars: Seq[String], var_name: String ="variable",
+              value_name: String ="value") : DataFrame = {
 
       // Start of melting the dataframe
       // Create array<struct<variable : str, value: ... >>
@@ -54,7 +53,7 @@ object MeltImpl {
       }): _*)
 
       // Add to the DataFrame and explode
-      val _tmp: DataFrame = input.withColumn("_vars_and_vals", F.explode(_vars_and_vals))
+      val _tmp: DataFrame = df.withColumn("_vars_and_vals", F.explode(_vars_and_vals))
       val cols = id_vars.map(F.col _) ++ {
         for (x <- List(var_name, value_name)) yield {
           F.col("_vars_and_vals")(x).alias(x)

@@ -14,4 +14,8 @@ class Melt():
 
         if df is None: df = self._df
 
-        return DataFrame(self._jMelt.app1(df._jdf, id_vars, value_vars, var_name, val_name),  df.sql_ctx)
+        return DataFrame(self._jMelt.melt1(df._jdf, id_vars, value_vars, var_name, val_name),  df.sql_ctx)
+
+def melt(df) :
+
+    return Melt(df)
