@@ -12,8 +12,7 @@ class Duplicate:
 
         self._df = df
 
-        self._jDup = self._df._sc._jvm\
-            .com.ons.sml.api.java.methods.JavaDuplicateFactory.duplicate(self._df._jdf)
+        self._jDup = self._df._sc._jvm.com.ons.sml.api.java.methods.JavaDuplicateFactory.duplicate(self._df._jdf)
 
     def __mandatoryArgumentCheck(self, arg1, arg2, arg3):
         if (arg1 is None) or (arg2 is None) or (arg3 is None):
