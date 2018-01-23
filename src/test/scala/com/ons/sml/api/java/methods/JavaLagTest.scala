@@ -1,13 +1,9 @@
 
 package com.ons.sml.api.java.methods
 
-import com.ons.sml.api.java.methods.JavaLag._
-import com.ons.sml.businessMethods.methods.Lag
 import uk.gov.ons.SparkTesting.TestSparkContext
-import org.apache.spark.sql.DataFrame
 
 class JavaLagTest extends TestSparkContext {
-
 
   test("Java_API") {
 

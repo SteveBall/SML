@@ -1,4 +1,4 @@
-from pyspark import DataFrame
+from pyspark.sql import DataFrame
 
 class Lag():
 
