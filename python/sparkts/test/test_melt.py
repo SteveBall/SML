@@ -5,8 +5,15 @@ from python.sparkts.onsMethods.Melt import melt
 
 
 class TestMelt(TestCase):
+    """
+    Class containing the tests for each melt method.
+    """
 
     def test_melt1(self):
+        """
+        The test for version 1 of the melt method.
+        :return:
+        """
 
         # Created Spark Session and add jar dependency
         spark = SparkSession \
