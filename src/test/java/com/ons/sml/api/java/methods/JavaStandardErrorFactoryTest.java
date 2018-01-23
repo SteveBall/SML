@@ -16,6 +16,9 @@ public class JavaStandardErrorFactoryTest {
     private static Dataset<Row> expectedDf;
 
     @BeforeClass
+    /**
+     * This method populates the spark session and data- input and expected dataframe from Json files.
+     */
     public static void before() throws Exception {
         // Create Spark/Hive context
         String inData = "./src/test/resources/sml/inputs/StandardErrorDataIn.json";
@@ -40,6 +43,13 @@ public class JavaStandardErrorFactoryTest {
 
 
     @Test
+    /**
+     *This is to test the findStandardError calculation is working as expected.Actual outcome is asserted against
+     * the pre-calculated expected outcome.
+     * the formula used to calculate stderror:
+     * {{{ stdError = sqrt{ (x/y)*(x-y) / (y-1) } * z  }}}
+     *
+     */
     public void standardError() {
 
         Dataset<Row> outDf = JavaStandardErrorFactory.standardError(inDf).stdErr1(null, "xColumn", "yColumn", "zColumn", "stdError");
@@ -50,6 +60,10 @@ public class JavaStandardErrorFactoryTest {
     }
 
     @Test
+    /**
+     * This is to test if optional input parameter 'newColName' is passed as null , default column name 'StandardError'
+     * be populated on output dataframe with expected value.
+     */
     public void standardError_DefaultCol() {
 
         Dataset<Row> outDf = JavaStandardErrorFactory.standardError(inDf).stdErr1(null, "xColumn", "yColumn", "zColumn", null);
@@ -61,7 +75,10 @@ public class JavaStandardErrorFactoryTest {
 
     }
 
-    @AfterClass // tearDown()
+    @AfterClass
+    /**
+     * This is to tear down the spark session.
+     */
     public static void after() throws Exception {
         System.out.println("Running: tearDown");
         spark.stop();
