@@ -25,8 +25,8 @@ class MeltTest extends TestSparkContext {
 
     // Input DataFrame going through the melt method
     val melted : DataFrame = transform.melt1(inputData,
-                                             id_vars=Seq("identifier", "date"),
-                                             value_vars=Seq("two","one","three","four"),
+                                             id_vars=List("identifier", "date"),
+                                             value_vars=List("two","one","three","four"),
                                              var_name = "variable",
                                              value_name = "turnover")
                                       .select("identifier", "date", "variable", "turnover")

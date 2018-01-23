@@ -11,7 +11,7 @@ class JavaMelt[K](trans: Melt){
   def melt1(input: DataFrame, id_vars: util.ArrayList[String], value_vars: util.ArrayList[String],
             var_name: String ="variable", value_name: String ="value") : DataFrame = {
 
-    trans.melt1(input, id_vars, value_vars, var_name, value_name)
+    trans.melt1(input, id_vars.toSeq, value_vars.toSeq, var_name, value_name)
   }
 
 }

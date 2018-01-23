@@ -10,7 +10,7 @@ class Melt(val dfIn: DataFrame) {
 
   import MeltImpl._
 
-  def melt1(input: DataFrame, id_vars: List[String], value_vars: List[String], var_name: String = "variable",
+  def melt1(input: DataFrame, id_vars: Seq[String], value_vars: Seq[String], var_name: String = "variable",
             value_name: String = "value"): DataFrame = {
 
     val inputData: DataFrame = if (input == null) dfIn else input

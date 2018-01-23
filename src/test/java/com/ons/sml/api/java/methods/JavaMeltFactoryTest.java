@@ -1,12 +1,12 @@
 package com.ons.sml.api.java.methods;
 
-import com.ons.sml.businessMethods.methods.Melt;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import java.util.ArrayList;
+import java.util.*;
+
 public class JavaMeltFactoryTest {
 
   @Test
@@ -34,7 +34,7 @@ public class JavaMeltFactoryTest {
 
 
     // Create Melt Class instance
-    Melt Transform = Melt.melt(inputData);
+    JavaMelt Transform = JavaMelt.melt(inputData);
 
     // Create empty lists
     ArrayList<String> id_vars = new ArrayList<String>();
@@ -49,7 +49,9 @@ public class JavaMeltFactoryTest {
     value_vars.add("four");
 
     // Input DataFrame going through the melt method
-    Dataset<Row> melted = Transform.melt1(inputData, id_vars, value_vars, "variable", "value_name");
+    Dataset<Row> melted = Transform.melt1(inputData, id_vars, value_vars, "variable", "value_name")
+                                   .select("date", "identifier", "value_name", "variable")
+                                   .orderBy("date");
     System.out.println("Output DataFrame");
     melted.show();
 
