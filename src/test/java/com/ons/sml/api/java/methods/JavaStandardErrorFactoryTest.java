@@ -42,7 +42,7 @@ public class JavaStandardErrorFactoryTest {
     @Test
     public void standardError() {
 
-        Dataset<Row> outDf = JavaStandardErrorFactory.standardError(inDf).stdError1(null, "xColumn", "yColumn", "zColumn", "stdError");
+        Dataset<Row> outDf = JavaStandardErrorFactory.standardError(inDf).stdErr1(null, "xColumn", "yColumn", "zColumn", "stdError");
         System.out.println("ActualOut DataFrame");
         outDf.show();
         assertEquals(outDf.select("ref", "xColumn", "yColumn", "zColumn", "stdError").collectAsList()
@@ -52,7 +52,7 @@ public class JavaStandardErrorFactoryTest {
     @Test
     public void standardError_DefaultCol() {
 
-        Dataset<Row> outDf = JavaStandardErrorFactory.standardError(inDf).stdError1(null, "xColumn", "yColumn", "zColumn", null);
+        Dataset<Row> outDf = JavaStandardErrorFactory.standardError(inDf).stdErr1(null, "xColumn", "yColumn", "zColumn", null);
         System.out.println("ActualOut DataFrame");
         outDf.show();
         expectedDf = expectedDf.withColumnRenamed("stdError", "StandardError");

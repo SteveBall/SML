@@ -5,7 +5,7 @@ import org.apache.spark.sql.{DataFrame, Dataset, Row}
 
 class JavaStandardError[K](stderr: StandardError) {
 
-  def stdError1(df:DataFrame, xCol:String, yCol:String, zCol:String, newColName:String): DataFrame = {
+  def stdErr1(df:DataFrame, xCol:String, yCol:String, zCol:String, newColName:String): DataFrame = {
     stderr.stdErr1(df, xCol, yCol, zCol, newColName)
   }
 

@@ -5,9 +5,10 @@ class StandardError():
 
     defaultCol = 'StandardError'
 
-    def __init__(self, df = None):
+    def __init__(self, df=None):
 
-        if df is None : raise TypeError
+        if df is None:
+            raise TypeError
 
         self._df = df
 
@@ -15,17 +16,20 @@ class StandardError():
 
     def __mandatoryArgumentCheck(self, arg1, arg2, arg3):
 
-        if (arg1 is None | arg2 is None | arg3 is None )  : raise TypeError('Missing mandatory argument')
+        if (arg1 is None) | (arg2 is None) | (arg3 is None):
+            raise TypeError('Missing mandatory argument')
 
-    def stdErr1(self, df = None, xCol = None, yCol = None, zCol = None , outputCol = defaultCol):
+    def stdErr1(self, df, xCol, yCol, zCol, outputCol=defaultCol):
 
         self.__mandatoryArgumentCheck(xCol, yCol, zCol)
 
-        if df is None: df = self._df
+        if df is None:
+            df = self._df
 
-        return DataFrame(self._jStdErr.stdErr1(df._jdf, xCol, yCol, zCol, outputCol) ,  df.sql_ctx)
+        return DataFrame(self._jStdErr.stdErr1(df._jdf, xCol, yCol, zCol, outputCol),  df.sql_ctx)
 
-def standardError(df) :
+
+def standardError(df):
 
     return StandardError(df)
 
