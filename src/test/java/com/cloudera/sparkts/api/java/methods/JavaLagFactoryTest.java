@@ -30,9 +30,9 @@ public class JavaLagFactoryTest {
 
         // Expected output data
         String expectedJSON = "./src/test/resources/sml/outputs/expected_data.json";
-        Dataset<Row> expectedData = spark.read().json(expectedJSON).select("id", "t", "v", "lagged1", "lagged2");
+        Dataset<Row> expectedData = spark.read().json(expectedJSON);
         System.out.println("Expected data frame:");
-        expectedData.show();
+        expectedData.select("id", "t", "v", "lagged1", "lagged2").show();
 
         // Create Lag Class instance
         JavaLag Transform = JavaLag.lag(inputData);
