@@ -5,3 +5,4 @@ sparkts
    :maxdepth: 4
 
    sparkts
+   onsMethods
