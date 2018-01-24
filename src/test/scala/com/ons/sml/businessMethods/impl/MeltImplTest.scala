@@ -6,6 +6,9 @@ import uk.gov.ons.SparkTesting.TestSparkContext
 
 class MeltImplTest extends TestSparkContext {
 
+  /**
+    * The test for the melt implicits class
+    */
   test("MeltImplicits Test") {
     // Input data
     val inputJSON: String = "./src/test/resources/sml/inputs/Melt.json"

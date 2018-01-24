@@ -1,10 +1,13 @@
-package ons.sml.businessMethods.methods
+package com.ons.sml.businessMethods.methods
 import org.apache.spark.sql.DataFrame
 import uk.gov.ons.SparkTesting.TestSparkContext
 import com.ons.sml.businessMethods.methods.Melt
 
 class MeltTest extends TestSparkContext {
 
+  /**
+    * Test for melt method
+    */
   test("Melt Test") {
     // Input data
     val inputJSON: String = "./src/test/resources/sml/inputs/Melt.json"
