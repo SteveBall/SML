@@ -29,7 +29,8 @@ class Lag(val dfIn: DataFrame){
 
     val dF: DataFrame = if (df == null ) dfIn else df
 
-    dF.lagFunc(partitionCols, orderCols, targetCol, lagNum)
+    dF.checkColNames(Seq(partitionCols, orderCols).flatten)
+      .lagFunc(partitionCols, orderCols, targetCol, lagNum)
   }
 }
 
