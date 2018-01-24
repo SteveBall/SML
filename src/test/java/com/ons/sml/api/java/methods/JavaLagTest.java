@@ -45,9 +45,7 @@ public class JavaLagTest {
         t.add("t");
 
         // Input DataFrame going through the lag method
-        Dataset<Row> outputData = Transform.lagFunc(inputData, JavaConversions.asScalaBuffer(id).toList(), JavaConversions.asScalaBuffer(t).toList(), "v", 2)
-                .select("id", "t", "v", "lagged1", "lagged2");
-
+        Dataset<Row> outputData = Transform.lagFunc(inputData, id, t, "v", 2);
 
         System.out.println("Output data frame:");
         outputData.show();

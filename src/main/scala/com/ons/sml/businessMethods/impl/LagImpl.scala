@@ -10,6 +10,13 @@ object LagImpl {
 
   implicit class LagMethodsImp(df: DataFrame) extends BaseMethodsImpl(df: DataFrame) {
 
+    /**
+      * @param partitionCols List[String]                 - List of column(s) to partition on
+      * @param orderCols List[String]                     - List of column(s) to order on
+      * @param targetCol String                           - Column name to create a window over
+      * @param lagNum Integer                             - The number of rows back from the current row from which to obtain a value
+      * @return sql.DataFrame                             - The DataFrame returned
+      */
     def lagFunc(partitionCols: List[String],
                 orderCols: List[String], targetCol: String, lagNum: Int): DataFrame = {
 
