@@ -8,7 +8,7 @@ public class JavaLagFactory {
 
     private static final JavaLag$ JAVA_LAG = JavaLag$.MODULE$;
 
-    private JavaLagFactory () {
-    }
+    private JavaLagFactory () {}
+
     public static JavaLag lag(Dataset<Row> df) {return JAVA_LAG.lag(df);}
 }

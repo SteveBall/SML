@@ -1,23 +1,22 @@
 
 package com.ons.sml.api.java.methods
+import java.util
 
-import com.ons.sml.businessMethods.methods.{Lag}
+import scala.collection.JavaConversions._
+import com.ons.sml.businessMethods.methods.Lag
 import org.apache.spark.sql.{DataFrame, Dataset, Row}
 
 class JavaLag[K](la: Lag){
 
-  def lagFunc(df: DataFrame, partitionCols: List[String],
-         orderCols: List[String], targetCol: String, lagNum: Int) : DataFrame = {
+  def lagFunc(df: Dataset[Row], partitionCols: util.ArrayList[String],
+         orderCols: util.ArrayList[String], targetCol: String, lagNum: Int) : DataFrame = {
 
-    la.lagFunc(df, partitionCols, orderCols, targetCol, lagNum)
-
+    la.lagFunc(df, partitionCols.toList, orderCols.toList, targetCol, lagNum)
   }
 }
 
-object JavaLag {
+object JavaLag{
 
   def lag(df: Dataset[Row]) : JavaLag[Lag] = {new JavaLag(Lag.lag(df))}
-
-
 
 }
