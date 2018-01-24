@@ -2,6 +2,15 @@ from pyspark.sql import DataFrame
 
 
 class StandardError():
+    """
+
+    This class is to calculate the standard error for input data based on formula:
+    {{{ stdError = sqrt{ (x/y)*(x-y) / (y-1) } * z  }}} and x,y,z are columns in the input dataframe.
+
+    It accepts the input dataframe, applies the above calculation and output the dataframe with a new column
+    along calculated 'standardError' value.
+
+    """
     defaultCol = 'StandardError'
 
     def __init__(self, df=None):
@@ -50,7 +59,6 @@ class StandardError():
             df = self._df
 
         return DataFrame(self._jStdErr.stdErr1(df._jdf, xCol, yCol, zCol, outputCol), df.sql_ctx)
-
 
 def standardError(df):
     """
