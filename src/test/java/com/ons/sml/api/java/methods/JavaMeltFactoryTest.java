@@ -7,10 +7,16 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import java.util.*;
 
+/**
+ *  Class containing all of the tests the the melt method.
+ */
 public class JavaMeltFactoryTest {
 
+  /**
+   * Test for the melt method.
+   */
   @Test
-  public void duplicateTest() {
+  public void meltTest() {
     // Create Spark/Hive context
     SparkSession spark = SparkSession
       .builder()
@@ -34,7 +40,7 @@ public class JavaMeltFactoryTest {
 
 
     // Create Melt Class instance
-    JavaMelt Transform = JavaMelt.melt(inputData);
+    JavaMelt Transform = JavaMeltFactory.melt(inputData);
 
     // Create empty lists
     ArrayList<String> id_vars = new ArrayList<String>();
