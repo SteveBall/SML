@@ -21,14 +21,14 @@ if [ -z "$SPARK_HOME" ]; then
 fi
 """
 os.system(CHECK_SPARK_HOME)
-
-# Dynamically load project root dir and jars.
-project_root = os.getcwd() + "/../"
-jars = run_cmd("ls %s/target/sparkts*jar-with-dependencies.jar" % project_root)
-
-# Set environment variables.
-os.environ["PYSPARK_SUBMIT_ARGS"] = \
-    ("--jars %s --driver-class-path %s pyspark-shell") % (jars, jars)
-
-os.environ["SPARK_CONF_DIR"] = "%s/test/resources/conf" % os.getcwd()
+#
+# # Dynamically load project root dir and jars.
+# project_root = os.getcwd() + "/../"
+# jars = run_cmd("ls %s/target/sparkts*jar-with-dependencies.jar" % project_root)
+#
+# # Set environment variables.
+# os.environ["PYSPARK_SUBMIT_ARGS"] = \
+#     ("--jars %s --driver-class-path %s pyspark-shell") % (jars, jars)
+#
+# os.environ["SPARK_CONF_DIR"] = "%s/test/resources/conf" % os.getcwd()
 
