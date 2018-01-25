@@ -1,7 +1,7 @@
 package com.ons.sml.businessMethods.methods
 
 import org.apache.spark.sql.DataFrame
-import uk.gov.ons.SparkTesting.TestSparkContext
+import uk.gov.ons.SparkTesting.{SparkSessionProvider, TestSparkContext}
 
 class MeltTest extends TestSparkContext {
 
@@ -11,13 +11,13 @@ class MeltTest extends TestSparkContext {
   test("Melt Test") {
     // Input data
     val inputJSON: String = "./src/test/resources/sml/inputs/Melt.json"
-    val inputData: DataFrame = _hc.read.json(inputJSON)
+    val inputData: DataFrame = SparkSessionProvider.sparkSession.read.json(inputJSON)
     println("Input DataFrame")
     inputData.show()
 
     // Expected output data
     val expectedJSON: String = "./src/test/resources/sml/outputs/Melt.json"
-    val expectedData: DataFrame = _hc.read.json(expectedJSON)
+    val expectedData: DataFrame = SparkSessionProvider.sparkSession.read.json(expectedJSON)
                                      .select("identifier", "date", "variable", "turnover")
                                      .orderBy("date")
     println("Expected output DataFrame")
