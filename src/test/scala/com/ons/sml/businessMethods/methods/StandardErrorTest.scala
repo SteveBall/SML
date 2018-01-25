@@ -1,7 +1,7 @@
 package com.ons.sml.businessMethods.methods
 
 import org.apache.spark.sql.DataFrame
-import uk.gov.ons.SparkTesting.TestSparkContext
+import uk.gov.ons.SparkTesting.{SparkSessionProvider, TestSparkContext}
 
 /** This class holds all the test to test the standard error scala API.
   * In total it holds 2 data setup functions and 6 tests.
@@ -15,9 +15,10 @@ class StandardErrorTest extends TestSparkContext {
     */
   def dataIn(): DataFrame ={
     // The String location of where the input data is stored
+
     val inData: String = "./src/test/resources/sml/inputs/StandardErrorDataIn.json"
     // Reading in the input data
-    val inputData: DataFrame = _hc.read.json(inData).select("ref", "xColumn", "yColumn","zColumn")
+    val inputData: DataFrame = SparkSessionProvider.sparkSession.read.json(inData).select("ref", "xColumn", "yColumn","zColumn")
     // Printing it the data
     println("Input dataframe")
     inputData.show()
@@ -33,7 +34,7 @@ class StandardErrorTest extends TestSparkContext {
     // The String location of where the Expected data is stored
     val expectedData: String = "./src/test/resources/sml/outputs/StandardErrorExpected.json"
     // Reading in the expected data
-    val expOutData: DataFrame = _hc.read.json(expectedData).select("ref", "xColumn", "yColumn","zColumn","stdError")
+    val expOutData: DataFrame = SparkSessionProvider.sparkSession.read.json(expectedData).select("ref", "xColumn", "yColumn","zColumn","stdError")
     // Printing it the data
     println("Expected dataframe")
     expOutData.show()

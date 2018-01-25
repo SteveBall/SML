@@ -3,18 +3,22 @@ package com.ons.sml.businessMethods.methods
 import org.apache.spark.sql.DataFrame
 import uk.gov.ons.SparkTesting.TestSparkContext
 
+import uk.gov.ons.SparkTesting.SparkSessionProvider
+
 class DuplicateTest extends TestSparkContext {
 
   test("testDm1") {
     // Input data
+
+
     val inData: String = "./src/test/resources/sml/inputs/DuplicateMarker.json"
-    val inDf: DataFrame = _hc.read.json(inData).select("id", "num", "order")
+    val inDf: DataFrame = SparkSessionProvider.sparkSession.read.json(inData).select("id", "num", "order")
     println("Input dataframe")
     inDf.show()
 
     // Expected data
     val expData: String = "./src/test/resources/sml/outputs/DuplicateMarker.json"
-    val expDf: DataFrame = _hc.read.json(expData).select("id", "num", "order", "marker")
+    val expDf: DataFrame = SparkSessionProvider.sparkSession.read.json(expData).select("id", "num", "order", "marker")
     println("Expected dataframe")
     expDf.show()
 
@@ -35,13 +39,13 @@ class DuplicateTest extends TestSparkContext {
   test("testDfIn") {
     // Input data
     val inData: String = "./src/test/resources/sml/inputs/DuplicateMarker.json"
-    val inDf: DataFrame = _hc.read.json(inData).select("id", "num", "order")
+    val inDf: DataFrame = SparkSessionProvider.sparkSession.read.json(inData).select("id", "num", "order")
     println("Input dataframe")
     inDf.show()
 
     // Expected data
     val expData: String = "./src/test/resources/sml/outputs/DuplicateMarker.json"
-    val expDf: DataFrame = _hc.read.json(expData).select("id", "num", "order", "marker")
+    val expDf: DataFrame = SparkSessionProvider.sparkSession.read.json(expData).select("id", "num", "order", "marker")
     println("Expected dataframe")
     expDf.show()
 
@@ -62,13 +66,13 @@ class DuplicateTest extends TestSparkContext {
   test("testDefaultCol") {
     // Input data
     val inData: String = "./src/test/resources/sml/inputs/DuplicateMarker.json"
-    val inDf: DataFrame = _hc.read.json(inData).select("id", "num", "order")
+    val inDf: DataFrame = SparkSessionProvider.sparkSession.read.json(inData).select("id", "num", "order")
     println("Input dataframe")
     inDf.show()
 
     // Expected data
     val expData: String = "./src/test/resources/sml/outputs/DuplicateMarker.json"
-    val expDf: DataFrame = _hc.read.json(expData).select("id", "num", "order", "marker")
+    val expDf: DataFrame = SparkSessionProvider.sparkSession.read.json(expData).select("id", "num", "order", "marker")
       .withColumnRenamed("marker", "DuplicateMarking")
     println("Expected dataframe")
     expDf.show()
@@ -90,7 +94,7 @@ class DuplicateTest extends TestSparkContext {
   test("testDuplicate") {
     // Input data
     val inData: String = "./src/test/resources/sml/inputs/DuplicateMarker.json"
-    val inDf: DataFrame = _hc.read.json(inData).select("id", "num", "order")
+    val inDf: DataFrame = SparkSessionProvider.sparkSession.read.json(inData).select("id", "num", "order")
     println("Input dataframe")
     inDf.show()
 
