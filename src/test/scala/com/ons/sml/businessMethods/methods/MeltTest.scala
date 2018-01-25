@@ -1,10 +1,13 @@
-package ons.sml.businessMethods.methods
+package com.ons.sml.businessMethods.methods
+
 import org.apache.spark.sql.DataFrame
 import uk.gov.ons.SparkTesting.TestSparkContext
-import com.ons.sml.businessMethods.methods.Melt
 
 class MeltTest extends TestSparkContext {
 
+  /**
+    * Test for melt method
+    */
   test("Melt Test") {
     // Input data
     val inputJSON: String = "./src/test/resources/sml/inputs/Melt.json"
@@ -24,8 +27,7 @@ class MeltTest extends TestSparkContext {
     val transform = new Melt(inputData)
 
     // Input DataFrame going through the melt method
-    val melted : DataFrame = transform.melt1(inputData,
-                                             id_vars=List("identifier", "date"),
+    val melted : DataFrame = transform.melt1(id_vars=List("identifier", "date"),
                                              value_vars=List("two","one","three","four"),
                                              var_name = "variable",
                                              value_name = "turnover")

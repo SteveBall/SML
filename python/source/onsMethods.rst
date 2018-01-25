@@ -12,10 +12,11 @@ sparkts.onsMethods.Apportionment module
     :undoc-members:
     :show-inheritance:
 
-sparkts.onsMethods.StandardError module
----------------------------------------
 
-.. automodule:: sparkts.onsMethods.StandardError
+sparkts.onsMethods.Duplicate module
+-----------------------------------
+
+.. automodule:: sparkts.onsMethods.Duplicate
     :members:
     :undoc-members:
     :show-inheritance:
@@ -28,11 +29,18 @@ sparkts.onsMethods.Estimation module
     :undoc-members:
     :show-inheritance:
 
+sparkts.onsMethods.Melt module
+------------------------------
 
-Module contents
----------------
-
-.. automodule:: sparkts.onsMethods
+.. automodule:: sparkts.onsMethods.Melt
     :members:
     :undoc-members:
     :show-inheritance:
+
+sparkts.onsMethods.StandardError module
+---------------------------------------
+
+.. automodule:: sparkts.onsMethods.StandardError
+:members:
+        :undoc-members:
+        :show-inheritance:

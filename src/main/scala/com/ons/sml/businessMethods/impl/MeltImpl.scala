@@ -6,10 +6,13 @@ import org.apache.spark.sql.{functions => F}
 
 object MeltImpl {
 
+  /** Implicit class containing the melt function(s).
+    *
+    * @param df - a DataFrame
+    */
   implicit class MeltMethodsImpl(df: DataFrame) extends BaseMethodsImpl(df : DataFrame) {
 
-    /**
-      * This method will take a sequence of column names (strings) and unpivots them into two columns, the '''var_name'''
+    /** This method will take a sequence of column names (strings) and unpivots them into two columns, the '''var_name'''
       * and its values.
       *
       * It does this by creating an array of structs through the value_var, this produces the following format (if two end

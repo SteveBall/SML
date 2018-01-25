@@ -1,7 +1,10 @@
 from pyspark.sql import DataFrame
 
 
-class Duplicate:
+class Duplicate():
+    """
+    testS
+    """
 
     defaultCol = "DuplicateMarking"
 
