@@ -10,7 +10,7 @@ import java.util.*;
 /**
  *  Class containing all of the tests the the melt method.
  */
-public class JavaMeltTest {
+public class JavaMeltFactoryTest {
 
   /**
    * Test for the melt method.
@@ -40,7 +40,7 @@ public class JavaMeltTest {
 
 
     // Create Melt Class instance
-    JavaMelt Transform = JavaMelt.melt(inputData);
+    JavaMelt Transform = JavaMeltFactory.melt(inputData);
 
     // Create empty lists
     ArrayList<String> id_vars = new ArrayList<String>();
