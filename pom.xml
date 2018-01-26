@@ -188,6 +188,7 @@
           <junitxml>.</junitxml>
           <filereports>WDF TestSuite.txt</filereports>
           <argLine>-XX:MaxPermSize=256m -Xmx2g</argLine>
+          <parallel>false</parallel>
         </configuration>
         <executions>
           <execution>
@@ -435,7 +436,6 @@
     <dependency>
       <groupId>uk.gov.ons</groupId>
       <artifactId>sparktesting_${scala.minor.version}</artifactId>
-      <version>0.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
