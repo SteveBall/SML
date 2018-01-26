@@ -436,7 +436,6 @@
     <dependency>
       <groupId>uk.gov.ons</groupId>
       <artifactId>sparktesting_${scala.minor.version}</artifactId>
-      <version>1.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
