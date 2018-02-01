@@ -37,12 +37,6 @@ pipeline {
                     sh 'mvn -B -DskipTests clean package'
                 }
             }
-        
-            stage('PythonPackage') {
-                steps {
-                    sh 'cp target/sparkts-0.4.0-SNAPSHOT-jar-with-dependencies.jar python/sparkts'
-                    sh 'python python/setup.py sdist'
-            }
-        }
+
     }
 }
