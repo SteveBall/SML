@@ -1,4 +1,3 @@
-
 package com.ons.sml.api.java.methods
 
 import com.ons.sml.businessMethods.methods.Apportionment
