@@ -16,7 +16,7 @@ pipeline {
             stage ('Initialise') {
                 steps {
                     sh '''
-                        echo "Initialise stage""
+                        echo "Initialise stage"
                         '''
                 }
             }
