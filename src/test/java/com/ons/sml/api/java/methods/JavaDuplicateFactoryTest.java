@@ -1,36 +1,38 @@
 package com.ons.sml.api.java.methods;
 
+import com.SharedSparkCtxtJava;
+import com.SparkCtxtProvider;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
-import org.apache.spark.sql.SparkSession;
+import org.junit.ClassRule;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
+public class JavaDuplicateFactoryTest extends SharedSparkCtxtJava {
+/*
 public class JavaDuplicateFactoryTest {
+
+    @ClassRule
+    public static SparkCtxtProvider spark = SparkCtxtProvider.getTestResources();
+*/
 
     @Test
     public void duplicateTest() {
-        // Create Spark/Hive context
-        SparkSession spark = SparkSession
-                .builder()
-                .master("local[*]")
-                .config("spark.driver.cores", 1)
-                .appName("JavaTest")
-                .getOrCreate();
-        spark.sparkContext().setLogLevel("ERROR");
 
         // Input data
         String inData = "./src/test/resources/sml/inputs/DuplicateMarker.json";
-        Dataset<Row> inDf = spark.read().json(inData).select("id", "num", "order");
+        Dataset<Row> inDf = sparkS().read().json(inData).select("id", "num", "order");
+        //Dataset<Row> inDf = spark.sparkS().read().json(inData).select("id", "num", "order");
         System.out.println("Input DataFrame");
         inDf.show();
 
         // Expected data
         String expData = "./src/test/resources/sml/outputs/DuplicateMarker.json";
-        Dataset<Row> expDf = spark.read().json(expData).select("id", "num", "order", "marker");
+        Dataset<Row> expDf = sparkS().read().json(expData).select("id", "num", "order", "marker");
+        //Dataset<Row> expDf = spark.sparkS().read().json(expData).select("id", "num", "order", "marker");
         System.out.println("Expected DataFrame");
         expDf.show();
 
