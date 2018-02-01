@@ -37,13 +37,7 @@ pipeline {
                     sh 'mvn -B -DskipTests clean package'
                 }
             }
-
-            stage('PyTest') {
-                steps {
-                    sh 'pytest python/sparkts/tests'
-                }
-            }
-
+        
             stage('PythonPackage') {
                 steps {
                     sh 'cp target/sparkts-0.4.0-SNAPSHOT-jar-with-dependencies.jar python/sparkts'
