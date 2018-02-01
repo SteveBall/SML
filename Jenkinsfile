@@ -13,11 +13,10 @@ pipeline {
               }
 
     stages {
-            stage ('Initialize') {
+            stage ('Initialise') {
                 steps {
                     sh '''
-                        echo "PATH = ${PATH}"
-                        echo "SPARK_HOME = ${SPARK_HOME}""
+                        echo "Initialise stage""
                         '''
                 }
             }
