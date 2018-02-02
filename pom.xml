@@ -12,13 +12,13 @@
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.cloudera.sparkts</groupId>
-  <artifactId>sparkts</artifactId>
-  <version>0.4.0</version>
+  <groupId>com.ons.sml</groupId>
+  <artifactId>sml</artifactId>
+  <version>0.0.2</version>
   <packaging>jar</packaging>
-  <name>Time Series for Spark</name>
+  <name>Statistical Methods Library</name>
   <description>A library for analyzing large-scale time series data.</description>
-  <url>http://sryza.github.io/spark-timeseries</url>
+  <url>https://github.com/SteveBall/SML.git</url>
 
   <licenses>
     <license>
@@ -29,8 +29,8 @@
 
   <developers>
     <developer>
-      <name>Sandy Ryza</name>
-      <email>sandyryza@gmail.com</email>
+      <name>Ian Edward</name>
+      <email>ian.edwards.com</email>
     </developer>
   </developers>
 
@@ -39,10 +39,10 @@
   </prerequisites>
 
   <scm>
-    <connection>scm:git:https://github.com/sryza/spark-timeseries.git</connection>
-    <url>scm:git:https://github.com/sryza/spark-timeseries.git</url>
-    <developerConnection>scm:git:https://github.com/sryza/spark-timeseries.git</developerConnection>
-    <tag>sparkts-0.4.0</tag>
+    <connection>scm:git:https://github.com/SteveBall/SML.git</connection>
+    <url>scm:git:https://github.com/SteveBall/SML.git</url>
+    <developerConnection>scm:git:https://github.com/SteveBall/SML.gitt</developerConnection>
+    <tag>sparkts-0.0.2</tag>
   </scm>
 
   <properties>
@@ -340,24 +340,24 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.6</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <keyname>Sandy Ryza &lt;sandyryza@gmail.com&gt;</keyname>
-          <executable>gpg2</executable>
-        </configuration>
-      </plugin>
+      <!--<plugin>-->
+        <!--<groupId>org.apache.maven.plugins</groupId>-->
+        <!--<artifactId>maven-gpg-plugin</artifactId>-->
+        <!--<version>1.6</version>-->
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<id>sign-artifacts</id>-->
+            <!--<phase>verify</phase>-->
+            <!--<goals>-->
+              <!--<goal>sign</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
+        <!--</executions>-->
+        <!--&lt;!&ndash;<configuration>&ndash;&gt;-->
+          <!--&lt;!&ndash;<keyname>Sandy Ryza &lt;sandyryza@gmail.com&gt;</keyname>&ndash;&gt;-->
+          <!--&lt;!&ndash;<executable>gpg2</executable>&ndash;&gt;-->
+        <!--&lt;!&ndash;</configuration>&ndash;&gt;-->
+      <!--</plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
