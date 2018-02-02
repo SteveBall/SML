@@ -10,6 +10,7 @@ pipeline {
     stages {
         stage('Initialise') {
             steps{
+                sh 'apt-get update'
                 sh 'apt-get install -t jessie-backports openjdk-8-jdk'
                 sh 'pip install -r python/requirements.txt'
             }
