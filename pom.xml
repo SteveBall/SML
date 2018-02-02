@@ -41,7 +41,7 @@
   <scm>
     <connection>scm:git:https://github.com/SteveBall/SML.git</connection>
     <url>scm:git:https://github.com/SteveBall/SML.git</url>
-    <developerConnection>scm:git:https://github.com/SteveBall/SML.gitt</developerConnection>
+    <developerConnection>scm:git:https://github.com/SteveBall/SML.git</developerConnection>
     <tag>sparkts-0.0.2</tag>
   </scm>
 
