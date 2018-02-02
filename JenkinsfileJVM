@@ -38,17 +38,13 @@ pipeline {
                 }
             }
 
-            stage('PyTest') {
+            stage('Deploy') {
                 steps {
-                    sh 'pytest python/sparkts/tests'
+                    sh 'echo =========================================================================================='
+                    sh 'echo DEPLOY!!!!!!!!!'
+                    sh 'echo =========================================================================================='
                 }
             }
 
-            stage('PythonPackage') {
-                steps {
-                    sh 'cp target/sparkts-0.4.0-SNAPSHOT-jar-with-dependencies.jar python/sparkts'
-                    sh 'python python/setup.py sdist'
-            }
-        }
     }
 }
