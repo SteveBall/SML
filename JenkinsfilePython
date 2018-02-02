@@ -8,7 +8,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'pip install -r python/requirements.txt'
-                sh 'export SPARK_HOME=/usr/local/lib/python2.7/site-packages/pyspark'
+                sh 'export SPARK_HOME=/usr/local/lib/python2.7/site-packages/pyspark/'
+                sh 'echo $SPARK_HOME'
                 sh 'pytest python/sparkts/test'
             }
         }
