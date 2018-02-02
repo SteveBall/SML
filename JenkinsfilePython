@@ -6,10 +6,14 @@ pipeline {
         }
     }
     stages {
+        stage('Initialise') {
+            steps{
+                sh 'pip install -r python/requirements.txt'
+            }
+        }
+
         stage('Test') {
             steps {
-                sh 'pip install -r python/requirements.txt'
-                sh 'echo $SPARK_HOME'
                 sh 'pytest python/sparkts/test'
             }
         }
