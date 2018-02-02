@@ -1,4 +1,3 @@
-
 package com.ons.sml.api.java.methods
 
 import com.ons.sml.businessMethods.methods.{Apportionment, Estimation}
@@ -16,6 +15,8 @@ class JavaEstimation[K](est: Estimation){
 
     est.est2(df, inputCol, factor, outputCol)
   }
+
+
 }
 
 object JavaEstimation {

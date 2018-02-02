@@ -1,4 +1,3 @@
-
 package com.ons.sml.businessMethods.methods
 
 import com.ons.sml.businessMethods.impl.EstimationImpl
