@@ -3,11 +3,14 @@ pipeline {
         docker {
             image 'python:2.7.14-slim-jessie'
             args '-e SPARK_HOME=/usr/local/lib/python2.7/site-packages/pyspark/'
+            args '-e JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/'
+            args '-u root'
         }
     }
     stages {
         stage('Initialise') {
             steps{
+                sh 'apt-get install -t jessie-backports openjdk-8-jdk'
                 sh 'pip install -r python/requirements.txt'
             }
         }
