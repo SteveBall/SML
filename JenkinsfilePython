@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python:2.7.14-slim-jessie'
+            image 'python:2.7.14-jessie'
             args '-e SPARK_HOME=/usr/local/lib/python2.7/site-packages/pyspark/'
             args '-e JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/'
             args '-u root'
