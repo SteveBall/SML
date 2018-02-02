@@ -5,12 +5,11 @@ pipeline {
             timestamps()
         }
 
-    agent any
-
-        tools {
-                 maven 'Maven 3.3.9'
-                 jdk 'jdk8'
-              }
+    agent {
+            docker {
+                image 'maven:3.5.2-jdk-8'
+            }
+        }
 
     stages {
             stage ('Initialise') {
