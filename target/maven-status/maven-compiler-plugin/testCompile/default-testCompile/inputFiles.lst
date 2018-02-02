@@ -1,0 +1,6 @@
+/home/srussell/workspace/SML/src/test/java/com/ons/sml/api/java/methods/JavaStandardErrorFactoryTest.java
+/home/srussell/workspace/SML/src/test/java/com/cloudera/sparkts/api/java/JavaTimeSeriesFactoryTest.java
+/home/srussell/workspace/SML/src/test/java/com/ons/sml/api/java/methods/JavaDuplicateFactoryTest.java
+/home/srussell/workspace/SML/src/test/java/com/ons/sml/api/java/methods/JavaMeltFactoryTest.java
+/home/srussell/workspace/SML/src/test/java/com/cloudera/sparkts/api/java/DateTimeIndexFactoryTest.java
+/home/srussell/workspace/SML/src/test/java/com/cloudera/sparkts/api/java/JavaTimeSeriesRDDFactoryTest.java

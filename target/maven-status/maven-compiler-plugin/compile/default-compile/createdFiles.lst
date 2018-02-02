@@ -1,0 +1,11 @@
+com/ons/sml/api/java/processes/JavaRSIFactory.class
+com/ons/sml/api/java/methods/JavaStandardErrorFactory.class
+com/ons/sml/api/java/methods/JavaMeltFactory.class
+com/ons/sml/api/java/methods/JavaDuplicateFactory.class
+com/ons/sml/api/java/methods/JavaLagFactory.class
+com/cloudera/sparkts/api/java/DateTimeIndexFactory.class
+com/ons/sml/api/java/methods/JavaApportionmentFactory.class
+com/ons/sml/api/java/processes/JavaVATFactory.class
+com/cloudera/sparkts/api/java/JavaTimeSeriesFactory.class
+com/ons/sml/api/java/methods/JavaEstimationFactory.class
+com/cloudera/sparkts/api/java/JavaTimeSeriesRDDFactory.class

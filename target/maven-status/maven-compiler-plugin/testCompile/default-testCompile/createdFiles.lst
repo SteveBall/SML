@@ -1,0 +1,6 @@
+com/cloudera/sparkts/api/java/JavaTimeSeriesRDDFactoryTest.class
+com/ons/sml/api/java/methods/JavaMeltFactoryTest.class
+com/cloudera/sparkts/api/java/JavaTimeSeriesFactoryTest.class
+com/ons/sml/api/java/methods/JavaDuplicateFactoryTest.class
+com/ons/sml/api/java/methods/JavaStandardErrorFactoryTest.class
+com/cloudera/sparkts/api/java/DateTimeIndexFactoryTest.class

@@ -1,0 +1,12 @@
+comp_id,comp_name,sector,turnover,employee_count
+1,"Lloyds Bank","Banking",5000000,10000
+2,"Barclays Bank","Banking",6000000,20000
+3,"HSBC","Banking",7000000,30000
+4,"Sainsbury","Supermarket",1000,100
+5,"Tesco","Supermarket",2000,200
+6,"Asda","Supermarket",3000,300
+7,"O2","Telecomms",1000000,100000
+8,"Vodafone","Telecomms",2000000,200000
+9,"EE","Telecomms",3000000,300000
+
+

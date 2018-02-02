@@ -1,0 +1,8 @@
+{"ref":"000000000", "xColumn":"200", "yColumn":120, "zColumn":10, "stdError":10.585122480499265},
+{"ref":"111111111", "xColumn":"300", "yColumn":220, "zColumn":20, "stdError":14.11569346481171},
+{"ref":"222222222", "xColumn":"400", "yColumn":320, "zColumn":30, "stdError":16.796775328675626},
+{"ref":"333333333", "xColumn":"500", "yColumn":420, "zColumn":40, "stdError":19.07033535747771},
+{"ref":"444444444", "xColumn":"600", "yColumn":520, "zColumn":53, "stdError":22.35172973492599},
+{"ref":"555555555", "xColumn":"700", "yColumn":620, "zColumn":60, "stdError":22.919444881396547},
+{"ref":"666666666", "xColumn":"800", "yColumn":720, "zColumn":70, "stdError":24.612590928328196},
+{"ref":"777777777", "xColumn":"900", "yColumn":820, "zColumn":80, "stdError":26.194333837063226}

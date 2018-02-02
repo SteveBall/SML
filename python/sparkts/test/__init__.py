@@ -31,4 +31,3 @@ os.environ["PYSPARK_SUBMIT_ARGS"] = \
     ("--jars %s --driver-class-path %s pyspark-shell") % (jars, jars)
 
 os.environ["SPARK_CONF_DIR"] = "%s/test/resources/conf" % os.getcwd()
-
