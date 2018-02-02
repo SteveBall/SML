@@ -7,8 +7,11 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'pip install ./python/requirements.txt'
-                sh 'pytest ./python/sparkts/test'
+                sh 'echo ================================================================'
+                sh 'pwd'
+                sh 'echo ================================================================'
+                sh 'pip install -r python/requirements.txt'
+                sh 'pytest python/sparkts/test'
             }
         }
         stage('Deliver') {
