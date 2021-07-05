@@ -1,45 +1,24 @@
 package com.ons.sml.api.java.methods;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import com.SharedSparkCtxtJava;
+import com.SparkCtxtProvider;
+import org.junit.ClassRule;
 import org.junit.Test;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
-import org.apache.spark.sql.SparkSession;
 
 import static org.junit.Assert.*;
 
-public class JavaStandardErrorFactoryTest {
-    private static SparkSession spark;
+public class JavaStandardErrorFactoryTest extends SharedSparkCtxtJava {
+/*public class JavaStandardErrorFactoryTest {
+    @ClassRule
+    public static SparkCtxtProvider spark = SparkCtxtProvider.getTestResources();*/
 
-    private static Dataset<Row> inDf;
-    private static Dataset<Row> expectedDf;
 
-    @BeforeClass
-    /**
-     * This method populates the spark session and data- input and expected dataframe from Json files.
-     */
-    public static void before() throws Exception {
-        // Create Spark/Hive context
-        String inData = "./src/test/resources/sml/inputs/StandardErrorDataIn.json";
-        String expectedData = "./src/test/resources/sml/outputs/StandardErrorExpected.json";
-        spark = SparkSession
-                .builder()
-                .master("local[*]")
-                .config("spark.driver.cores", 1)
-                .appName("JavaTest")
-                .getOrCreate();
-        System.out.println("Setting it up!");
-        spark.sparkContext().setLogLevel("ERROR");
-        // Create Input data
-        inDf = spark.read().json(inData);
-        // Create Expected out data
-        expectedDf = spark.read().json(expectedData);
-        //System.out.println("Input Dataframe :: ");
-        //inDf.show();
-        //System.out.println("Expected Dataframe :: ");
-        //expectedDf.show();
-    }
+
+    private String inData = "./src/test/resources/sml/inputs/StandardErrorDataIn.json";
+    private String expectedData = "./src/test/resources/sml/outputs/StandardErrorExpected.json";
+
 
 
     @Test
@@ -52,6 +31,12 @@ public class JavaStandardErrorFactoryTest {
      */
     public void standardError() {
 
+        // Create Input data
+        Dataset<Row> inDf = sparkS().read().json(inData);
+        //Dataset<Row> inDf = spark.sparkS().read().json(inData);
+        // Create Expected out data
+        Dataset<Row> expectedDf = sparkS().read().json(expectedData);
+        //Dataset<Row> expectedDf = spark.sparkS().read().json(expectedData);
         Dataset<Row> outDf = JavaStandardErrorFactory.standardError(inDf).stdErr1(null, "xColumn", "yColumn", "zColumn", "stdError");
         System.out.println("ActualOut DataFrame");
         outDf.show();
@@ -66,6 +51,14 @@ public class JavaStandardErrorFactoryTest {
      */
     public void standardError_DefaultCol() {
 
+
+        // Create Input data
+        Dataset<Row> inDf = sparkS().read().json(inData);
+        //Dataset<Row> inDf = spark.sparkS().read().json(inData);
+
+        // Create Expected out data
+        Dataset<Row> expectedDf = sparkS().read().json(expectedData);
+        //Dataset<Row> expectedDf = spark.sparkS().read().json(expectedData);
         Dataset<Row> outDf = JavaStandardErrorFactory.standardError(inDf).stdErr1(null, "xColumn", "yColumn", "zColumn", null);
         System.out.println("ActualOut DataFrame");
         outDf.show();
@@ -75,12 +68,5 @@ public class JavaStandardErrorFactoryTest {
 
     }
 
-    @AfterClass
-    /**
-     * This is to tear down the spark session.
-     */
-    public static void after() throws Exception {
-        System.out.println("Running: tearDown");
-        spark.stop();
-    }
+
 }

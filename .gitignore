@@ -3,6 +3,7 @@
 .settings
 .cache
 target
+metastore_db/
 *.iml
 .idea
 scalastyle-output.xml
@@ -13,4 +14,3 @@ python/dist/
 python/*.egg-info
 *.log
 *.jar
-metastore_db
